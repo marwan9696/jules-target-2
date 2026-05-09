@@ -1,8 +1,12 @@
 import java.util.List;
 
-public class UserService {
+import java.util.Collections;
+
+public class UserService extends BaseService {
     public List<String> getUsers(List<String> input) {
-        // Bug: throws NullPointerException when input is null or empty
+        if (input == null || input.isEmpty()) {
+            return Collections.emptyList();
+        }
         return input.subList(0, input.size());
     }
 }
